@@ -1,0 +1,14 @@
+First we need to access the spreadsheet via the name, the URL, or the key as it appears in the URL.
+Only one of the following lines needs to be filled, but multiple can be filled to increase reliability.
+
+title="Attendance"
+url=""
+key=""
+
+Next we need to access the correct worksheet. If there is only one worksheet, then our choice is obvious but the option to chose from multiple worksheets is available
+The correct worksheet can be accessed via the name, or the index of the worksheet (indexes start at 0)
+Like before, multiple of the following lines can be filled to increase reliability.
+Unlike before, if none of the following lines is filled the system will asume that the first worksheet is desired
+
+title=""
+index=""
