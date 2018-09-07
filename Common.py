@@ -14,7 +14,7 @@ def Connect(): #Receive, parse, and display startup data
             print("[NOTICE] Connected through %s" % port)
             break
         except Exception as e:
-            print(e)
+            pass
     try:
         return ser
     except:
