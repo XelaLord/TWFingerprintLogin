@@ -6,26 +6,26 @@ SECTION 1: Overview
 This system uses an arduino and a fingerprint scanner to automate the
 student meeting sign in process. It has the capability to enroll (register)
 students fingerprints, to identify a students fingerprint, automatically
-update a google attendance spreadsheet to say that student has sign in or
+update a google attendance spreadsheet to say that student has signed in or
 out, and to clear all fingerprints off of the scanner at the end of a season.
 This involves python scripts, arduino scripts, and interfacing with the
 Google Drive API. 
 
 SECTION 2: Scripts
-There are 5 scripts of importance in this system
+There are 5 important scripts
 Enroll.py
 SignIn.py
 Reset.py
 ListSpreadsheets.py
 Scanner.ino
 
-Firstly ListSpreadsheets.py does pretty much what it says on the tin, it
+Firstly, ListSpreadsheets.py does pretty much what it says on the tin, it
 finds all the spreadsheets the Google Service account has access to,
 displays the names and other relevant info, and saves that data to the
 List_of_Spreadsheets.txt file. This is designed make it easier to access
 the desired spreadsheet. (See section 4)
 
-Now that that is out of the way, Letís dive into the other 4 scripts.
+Now that that is out of the way, Let‚Äôs dive into the other 4 scripts.
 There is one script uploaded onto the arduino, and 3 python scripts each
 with their own unique functionality. 
 Enroll.py is used to enroll new students fingerprints onto the scanner
@@ -45,8 +45,8 @@ IMPORTANT: An important thing to realise is that while there is ONLY ONE
 script that is uploaded onto the Arduino, this is not how the system was
 originally designed. It was originally developed with 3 separate arduino
 scripts, each corresponding to a python script, but it those 3 scripts were
-combined into 1 to improve the ease of use and user experience. Now Iím
-pretty sure that this redesign didnít break anything, but the legacy folder
+combined into 1 to improve the ease of use and user experience. Now I‚Äôm
+pretty sure that this redesign didn‚Äôt break anything, but the legacy folder
 contains the original 3 arduino scripts and matching python scripts, just
 in case.
 
@@ -55,16 +55,16 @@ To run this system you need Python (Version 3), and IDLE and the Arduino
 editor are HIGHLY recommended, the system is technically capable of running
 without them, but only technically.
 
-The Arduino script should already be uploaded onto the Arduino but if itís
+The Arduino script should already be uploaded onto the Arduino but if it‚Äôs
 not, do that, I guess.
 You can run the python scripts through the windows terminal, or through
-IDLE, thatís up to you.
+IDLE, that‚Äôs up to you.
 Run the script corresponding to your desired action and follow the prompts.
-Iíve tried to make it as easy as possible.
+I‚Äôve tried to make it as easy as possible.
 
 SECTION 4: Google Drive API
 In order for the system to update a google attendance spreadsheet a couple
-things need to be set up first, but like before Iíve tried to make it as
+things need to be set up first, but like before I‚Äôve tried to make it as
 easy as possible. 
 We need 4 things
 The desired spreadsheet to be shared with the google service account
@@ -73,23 +73,23 @@ The correct spreadsheet to referenced in the SpreadsheetData.txt file
 An internet connection. (Duh)
 
 IMPORTANT: A workbook and and a spreadsheet are 2 different things the
-difference between them is crucial. If you donít know, look it up.
+difference between them is crucial. If you don‚Äôt know, look it up.
 
 Step one is as easy as sharing the spreadsheet with any other user. The
 email address to share it with is
-ìtwfingerprintlogin@twfingerprintlogin.iam.gserviceaccount.comî
+‚Äútwfingerprintlogin@twfingerprintlogin.iam.gserviceaccount.com‚Äù
 which can also be found in the ServiceAccountCredential.json file, or at
 the top of all of the python scripts.
 
 Steps 2 and 3 are a bit harder, but if you use the ListSpreadsheets.py
 script it should be very easy. Run the python script, copy the name and ID
-of the desired workbook, paste that info, and/or the workbookís URL into
+of the desired workbook, paste that info, and/or the workbook‚Äôs URL into
 the SpreadsheetData.txt file and format as it specifies, making sure it
 looks something like this.
 
 	title="Workbook name"
-	url="https://docs.google.com/spreadsheets/d/[some code]î
-	key="[some code]î
+	url="https://docs.google.com/spreadsheets/d/[some code]‚Äù
+	key="[some code]‚Äù
 
 That's the workbook done. The spreadsheet is easier. If you only have one
 spreadsheet in the workbook, or you just want it to use the first
@@ -110,3 +110,5 @@ programming team, or if you just have questions, you can contact me at
 alex.m.boyer@gmail.com.
 
 FIN
+
+P.S. If you're running this on linux, you're probalby having trouble with the serial connection. Linux stores Serial port data in the /dev directory, in files called tty[some code]. This files are permission limited and by defualt a normal user doesn't have access. All you have to do is add your user to the 'dialout' group, and that should fix it.
